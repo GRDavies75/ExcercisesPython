@@ -12,7 +12,14 @@ def give_indexed_char(s: str, i: int) -> str:
 
     index i > len(s) returns "i is out of range"
     """
-    if s == "":
+    # My solution
+    # if s == "":
+    # -----------
+    # suggested solution: if not s: 
+    # " if it's empty, it will result in False when checked"
+    # "...and this works also on lists, tuples, dicts, etc..."
+    # --------------------------------------------------------
+    if not s:
         return "Empty String"
     elif len(s) < i:
         return "i is out of range"
