@@ -5,7 +5,7 @@ Case-insensitive
 (Western alphabet)
 Spaces are ignored, if present, assume no other symbols.
 """
-from string import ascii_lowercase
+import string
 
 
 def main() -> None:
@@ -14,11 +14,14 @@ def main() -> None:
         "The quick brown fox jumps over the lazy dog",
         "Hello",
     ]
-    ALPHABET = set(ascii_lowercase)
+    ALPHABET = set(string.ascii_lowercase)
 
     for entry in input_data:
         lc_entry_set = set(entry.casefold())
-        output = ALPHABET <= lc_entry_set
+        # discard any potential space (" ")
+        lc_entry_set.discard(" ")
+        # Sets do have distinct values, so basicly the sets should be the same to pass
+        output = ALPHABET == lc_entry_set
         print(f"Input: '{entry}' - Output: '{output}'")
 
 
