@@ -15,7 +15,7 @@ def main() -> None:
     ]
 
     # If you repeat specific values it's best to make it a variable
-    # For easier changes to the code, instead of 3 positions, now only 1
+    # For easier changes to the code, instead of 3 alterations, now only 1
     CHARS_TO_SNIP = 3
 
     for entry in input_data:
