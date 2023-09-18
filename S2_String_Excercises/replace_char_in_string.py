@@ -19,7 +19,7 @@ def main() -> None:
         if curr_char not in s:
             print(f"Input: '{s}' - Output: '{s}'")
         else:
-            output = ""
+            # output = ""
             # My solution using range and len()
             # ---------------------------------
             # for i in range(len(s)):
@@ -29,13 +29,18 @@ def main() -> None:
             #         output += s[i]
             # 
             # More elegant (more Pythonic?)
-            # in the provided solution
-            # -----------------------------
-            for char in s:
-                if char == curr_char:
-                    output += new_char
-                else:
-                    output += char
+            # in the provided first solution
+            # ------------------------------
+            # for char in s:
+            #     if char == curr_char:
+            #         output += new_char
+            #     else:
+            #         output += char
+            #
+            # But nothing beats the prefered usage of the string functon
+            # (and probably could replace the whole if else block)
+            # ----------------------------------------------------------
+            output = s.replace(curr_char, new_char)
 
             print(f"Input: '{s}' - Output: '{output}'")
 
