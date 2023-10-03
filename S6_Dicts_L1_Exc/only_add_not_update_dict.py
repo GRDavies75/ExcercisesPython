@@ -7,7 +7,7 @@ if given key is already part of dict, do nothing (don't update)
 
 def main() -> None:
     # Chosen to use tuple for the key-value pair,
-    # could also have been a dictionary
+    # could also have been a dictionary (looping over the .items())
     input_data = [
         ({"Januari": 45, "February": 56, "March": 67}, ("April", 67)),
         ({"Januari": 45, "February": 56, "March": 67}, ("Januari", 67)),
