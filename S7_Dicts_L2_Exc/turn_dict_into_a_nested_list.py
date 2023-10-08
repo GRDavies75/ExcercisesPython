@@ -22,6 +22,12 @@ def main() -> None:
             inner_list.append(key)
             inner_list.append(value)
             output_list.append(inner_list)
+            #
+            # I thought way to difficult
+            # No innerlist needed and only 1 line of code in the for loop
+            # Doh! 
+            # ===========================================================
+            # output_list.append([key, value])
 
     print(output_list)
 
