@@ -12,8 +12,9 @@ Note: all chars are considered case-insensitive
 
 def main() -> None:
     input_data = [
-        "",
         "Score: 36",
+        "",
+        "Python~@"
     ]
     VOWELS = "aeiou"
 
