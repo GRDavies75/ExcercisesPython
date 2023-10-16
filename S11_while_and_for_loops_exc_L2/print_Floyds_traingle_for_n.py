@@ -19,7 +19,7 @@ def main() -> None:
         user_input = ip.get_user_input("For what 'N': ", extra_information)
 
         # quiting clause
-        if user_input == 'q':
+        if user_input.casefold() == 'q':
             break
 
         if user_input.isdigit() and 1 <= int(user_input) <= 13:
