@@ -6,7 +6,7 @@ A simplified unified user input requestor
 
 def get_user_input(prompt: str='', *pre_prompts: str) -> str:
     """
-    prompt is used at the input itself
+    prompt is for at the input itself
 
     pre_prompts gives the ability for extra strings before the input
     
