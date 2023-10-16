@@ -14,6 +14,8 @@ def main() -> None:
     #
     # This feels the better way, due to not having to check i % 2 == 0 every 
     # (unnessecary) digit
+    # UPDATE: In the last part of the solution she mentions this is slightly less efficient.
+    # But she likes the idea that 'problems' can be solved with different approaches
 
 
 if __name__ == "__main__":
