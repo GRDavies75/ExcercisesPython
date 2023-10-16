@@ -1,6 +1,6 @@
 """
 Due to repeated request for user input during the excercises
-A simplified unified user input requestor
+A simplified unified user input requestor / prompter
 """
 
 
