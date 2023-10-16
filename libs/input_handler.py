@@ -10,7 +10,7 @@ def get_user_input(prompt: str='', *pre_prompts: str) -> str:
 
     pre_prompts gives the ability for extra strings before the input
     
-    loose strings or a list of strings
+    (can be loose strings or a list of strings)
     """
     for pre_prompt in pre_prompts:
         if isinstance(pre_prompt, list):
