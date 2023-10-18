@@ -32,8 +32,8 @@ def grd_gcd(a: int, b: int, current_gcd: int=1) -> int|None:
         return current_gcd
     
 
-# Again it looks like i produced something workable (beside the a|b == 0 -> max(a,b) little bug)
-# But the actual solution is way shorter and more elegant/efficient
+# Again it looks like i produced something workable (beside the a XOR b == 0 -> max(a,b) little bug)
+# But the actual solution is way shorter and more elegant/efficient (asummed perfect input)
 # This is not my code!
 def find_gcd(a, b):
     if b == 0:
