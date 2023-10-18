@@ -6,13 +6,14 @@ Greatest Common Denominator
 
 def grd_gcd(a: int, b: int, current_gcd: int=1) -> int|None:
     """
-    return the Greatest Common Divisor of given 2 positivie ints
+    return the Greatest Common Divisor of given 2 ints
     
-    return None if both are 0 (one 0 is allowed), also if both < 0
+    return None if both are 0 (one 0 is allowed)
     """
     # Cornercase(s)
-    if (a < 0 or b < 0) or (a == 0 and b == 0):
+    if (a == 0 and b == 0):
         return None
+    # Base step
     elif a == 0 or b == 0:
         # Read the wikipedia wrong, returned intially 0,
         # But should have been the non-zero value
@@ -25,10 +26,10 @@ def grd_gcd(a: int, b: int, current_gcd: int=1) -> int|None:
     for i in range (2, min(a, b) + 1):
         if a % i == 0 and b % i == 0:
             current_gcd *= i
-            a //= i
-            b //= i
+            a /= i
+            b /= i
             return grd_gcd(a, b, current_gcd)
-    else: # for loop, not hitting any common denominator
+    else: # for loop, not hitting any common divisor
         return current_gcd
     
 
