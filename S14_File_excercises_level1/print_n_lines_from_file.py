@@ -42,7 +42,7 @@ def main() -> None:
                 continue
 
             for i in range(n_lines):
-                print(content[i].lstrip(), end="")
+                print(content[i], end="")
         else:
                 print(BASIC_ERROR_MSG)
 
