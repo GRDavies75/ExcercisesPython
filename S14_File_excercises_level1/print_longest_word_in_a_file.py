@@ -40,12 +40,13 @@ def print_report(ln: int, pos: int, wl: int, wrd: str, numt: int=0) -> None:
 
 def main() -> None:
     FILE_NAME = "sentences.txt"
+    HEADER = f"Longest word report for file: '{FILE_NAME}'"
     content = []
     max_word_length = 0
     biggest_word = ""
     line_number = None
     position = None
-    ties_dict = {} # {int: int}
+    ties_dict = {0: 0} # in case of a file only containing non-exclusive letterwords
 
     with open(FILE_NAME, encoding='utf-8') as sentence_file:
         content = sentence_file.readlines()
@@ -54,26 +55,23 @@ def main() -> None:
         words = line.split(" ")
 
         for pos, word in enumerate(words, 1):
-            if word.isalpha():
-                word_length = len(word)
-                if word_length > max_word_length:
-                    max_word_length = word_length
-                    biggest_word = word
-                    position = pos
-                    line_number = ln
-                elif word_length == max_word_length:
-                    ties_dict[word_length] = ties_dict.get(word_length, 0) + 1
-                else:
-                    pass # not interested    
-            else:
-                pass # not interested
+            # Skip to new iteration/next word if not only letters
+            if not word.isalpha():
+                continue
 
-    if not ties_dict:
-        print_report(line_number, position, max_word_length, biggest_word)
-    else:
-        # a ties_dict can be filled, but not for the max_word_length persé
-        ties = ties_dict.get(max_word_length, 0) 
-        print_report(line_number, position, max_word_length, biggest_word, ties)
+            word_length = len(word)
+            if word_length > max_word_length:
+                max_word_length = word_length
+                biggest_word = word
+                position = pos
+                line_number = ln
+                # For efficiency purposes, always make a dict entry (for 0 value)
+                ties_dict[word_length] = ties_dict.get(word_length, 0)
+            elif word_length == max_word_length:
+                ties_dict[word_length] += 1
+
+    print(HEADER)
+    print_report(line_number, position, max_word_length, biggest_word, ties_dict[max_word_length])
 
 
 if __name__ == "__main__":
