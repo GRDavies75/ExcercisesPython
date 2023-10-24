@@ -41,7 +41,7 @@ def main() -> None:
                 print(BASIC_ERROR_MSG)
                 continue
 
-            for i in range(0, n_lines):
+            for i in range(n_lines):
                 print(content[i].lstrip(), end="")
         else:
                 print(BASIC_ERROR_MSG)
