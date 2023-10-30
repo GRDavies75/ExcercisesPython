@@ -4,7 +4,7 @@ Print a pattern recursively
 """
 import sys
 sys.path.append("..")
-import libs.input_prompter as ip
+import libs.input_library as il
 
 
 def produce_pattern(string: str) -> str:
@@ -23,7 +23,7 @@ def main() -> None:
         "[Q = quit]",
     ]
     while True:
-        length_pattern = ip.get_user_input("For what N: ", extra_information)
+        length_pattern = il.get_user_input("For what N: ", extra_information)
         if length_pattern.casefold() == 'q':
             return # breaking out of main
         elif length_pattern.isdigit():

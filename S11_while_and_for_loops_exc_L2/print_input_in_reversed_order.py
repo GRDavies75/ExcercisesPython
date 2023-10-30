@@ -17,12 +17,12 @@ I consider this a case of all is well (for 11-67 )
 """
 import sys
 sys.path.append("..")
-from libs import input_prompter as ip
+from libs import input_library as il
 
 
 def main() -> None:
     while True:
-        user_input = ip.get_user_input("Give any input [Exception: 'Q' = quit]")
+        user_input = il.get_user_input("Give any input [Exception: 'Q' = quit]")
 
         # quiting handling
         if user_input.casefold() == 'q':

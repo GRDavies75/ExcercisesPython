@@ -5,7 +5,7 @@ if n > max lines print appropiate feedback
 """
 import sys
 sys.path.append("..")
-from libs import input_prompter as ip
+from libs import input_library as il
 
 
 def main() -> None:
@@ -24,7 +24,7 @@ def main() -> None:
     while True:
         # For readability
         print()
-        user_input = ip.get_user_input("For which N: ", extra_information)
+        user_input = il.get_user_input("For which N: ", extra_information)
 
         # Quiting
         if user_input.casefold() == 'q':

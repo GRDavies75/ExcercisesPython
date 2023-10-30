@@ -11,7 +11,7 @@ E E E E E
 """
 import sys
 sys.path.append("..")
-from libs import input_prompter as ip
+from libs import input_library as il
 
 
 def main() -> None:
@@ -22,7 +22,7 @@ def main() -> None:
         "-------------------------------------"
     ]
     while True:
-        user_input = ip.get_user_input("For what 'N': ", extra_information)
+        user_input = il.get_user_input("For what 'N': ", extra_information)
 
         # quiting clause
         if user_input.casefold() == 'q':

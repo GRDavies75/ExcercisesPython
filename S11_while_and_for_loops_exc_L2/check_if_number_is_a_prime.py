@@ -7,7 +7,7 @@ https://en.wikipedia.org/wiki/Prime_number
 """
 import sys
 sys.path.append("..")
-from libs import input_prompter as ip
+from libs import input_library as il
 
 
 def trial_division(n: int) -> list[int]:
@@ -40,7 +40,7 @@ def main() -> None:
         "Q = quit",
     ]
     while True:
-        user_input = ip.get_user_input("for which 'n': ", extra_info)
+        user_input = il.get_user_input("for which 'n': ", extra_info)
         # Quiting corner-case
         if user_input.casefold() == 'q':
             break

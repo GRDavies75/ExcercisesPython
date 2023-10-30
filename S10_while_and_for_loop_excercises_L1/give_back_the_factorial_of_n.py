@@ -4,7 +4,7 @@ Give back the factorial of (user inputted) n
 """
 import sys
 sys.path.append("..")
-from libs import input_prompter as ih
+from libs import input_library as il
 
 
 def give_factorial(n: int) -> int|None:
