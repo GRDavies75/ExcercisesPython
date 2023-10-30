@@ -1,6 +1,6 @@
 """
-Due to repeated request for user input during the excercises
-A simplified unified user input requestor / prompter
+A module for input related code
+for consistency and related motives
 """
 
 
@@ -21,3 +21,32 @@ def get_user_input(prompt: str='', *pre_prompts: str) -> str:
     user_input = input(prompt)
 
     return user_input
+
+
+def sanetize_input_to_numerical_value(input: str) -> int|float|None:
+    """
+    apparently input is interpreted char by char
+
+    and a . isnt a float so float(input) doesn't work
+
+    return None if input not been able to convert to int or float
+    """
+    if input.count(".") >= 2:
+        return None
+    # (Potential) float
+    elif input.count(".") == 1:
+        parts = input.split(".")
+        whole = parts[0]
+        fraction = parts[1]
+
+        if whole.isdigit() and fraction.isdigit():
+            return int(whole) + float(int(fraction) / 10 ** len(fraction))
+        
+        return None
+
+    # (Potential) integer 
+    if input.isdigit():
+        return int(input)
+    
+    # apparently not a numerical value
+    return None

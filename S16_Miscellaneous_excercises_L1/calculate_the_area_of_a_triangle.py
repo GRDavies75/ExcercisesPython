@@ -10,36 +10,7 @@ You can provide a float too in my/this version
 """
 import sys
 sys.path.append("..")
-import libs.input_prompter as ip
-
-
-def sanetize_input_to_numerical_value(input: str) -> int|float|None:
-    """
-    apparently input is interpreted char by char
-
-    and a . isnt a float so float(input) doesn't work
-
-    return None if input not been able to convert to int or float
-    """
-    if input.count(".") >= 2:
-        return None
-    # (Potential) float
-    elif input.count(".") == 1:
-        parts = input.split(".")
-        whole = parts[0]
-        fraction = parts[1]
-
-        if whole.isdigit() and fraction.isdigit():
-            return int(whole) + float(int(fraction) / 10 ** len(fraction))
-        
-        return None
-
-    # (Potential) integer 
-    if input.isdigit():
-        return int(input)
-    
-    # apparently not a numerical value
-    return None
+import libs.input_library as il
 
 
 def main() -> None:
@@ -55,17 +26,17 @@ def main() -> None:
         # For readability
         print()
 
-        user_input = ip.get_user_input("Base: ", extra_info)
+        user_input = il.get_user_input("Base: ", extra_info)
         if user_input.casefold() == 'q':
             break
-        base = sanetize_input_to_numerical_value(user_input)
+        base = il.sanetize_input_to_numerical_value(user_input)
         if not base or base <= 0:
             base = None
 
-        user_input = ip.get_user_input("Height: ")
+        user_input = il.get_user_input("Height: ")
         if user_input.casefold() == 'q':
             break
-        height = sanetize_input_to_numerical_value(user_input)
+        height = il.sanetize_input_to_numerical_value(user_input)
         if not height or height <= 0:
             height = None
 
