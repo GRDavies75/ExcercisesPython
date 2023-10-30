@@ -31,10 +31,11 @@ def sanetize_input_to_numerical_value(input: str) -> int|float|None:
 
     return None if input not been able to convert to int or float
     """
-    if input.count(".") >= 2:
-        return None
+    # Cornercase - users can be unpredictable
+    if input[-1] == '.':
+        input = input + '0'
     # (Potential) float
-    elif input.count(".") == 1:
+    if input.count(".") == 1:
         parts = input.split(".")
         whole = parts[0]
         fraction = parts[1]
