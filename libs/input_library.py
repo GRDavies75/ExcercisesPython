@@ -30,6 +30,8 @@ def sanetize_input_to_numerical_value(input: str) -> int|float|None:
     and a . isnt a float so float(input) doesn't work
 
     return None if input not been able to convert to int or float
+
+    TODO: integrate locale, now this works only for American numberformat
     """
     # Cornercase - users can be unpredictable
     if input[-1] == '.':
